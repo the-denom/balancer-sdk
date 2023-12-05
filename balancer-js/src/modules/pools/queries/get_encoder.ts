@@ -13,6 +13,7 @@ export const getEncoder = (
   | undefined => {
   switch (poolType) {
     case PoolType.Weighted:
+    case PoolType.Managed:
       return WeightedPoolEncoder;
 
     case PoolType.Stable:

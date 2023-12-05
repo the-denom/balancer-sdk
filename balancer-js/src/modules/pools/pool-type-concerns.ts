@@ -2,6 +2,7 @@ import { BalancerSdkConfig, PoolType } from '@/types';
 import { Stable } from './pool-types/stable.module';
 import { ComposableStable } from './pool-types/composableStable.module';
 import { Weighted } from './pool-types/weighted.module';
+import { Managed } from './pool-types/managed.module';
 import { MetaStable } from './pool-types/metaStable.module';
 import { StablePhantom } from './pool-types/stablePhantom.module';
 import { Linear } from './pool-types/linear.module';
@@ -23,7 +24,8 @@ export class PoolTypeConcerns {
     public composableStable = new ComposableStable(),
     public metaStable = new MetaStable(),
     public stablePhantom = new StablePhantom(),
-    public linear = new Linear()
+    public linear = new Linear(),
+    public managed = new Managed()
   ) {}
 
   static from(
@@ -34,6 +36,7 @@ export class PoolTypeConcerns {
     | ComposableStable
     | MetaStable
     | StablePhantom
+    | Managed
     | Linear {
     // Calculate spot price using pool type
     switch (poolType) {
@@ -62,6 +65,8 @@ export class PoolTypeConcerns {
       case 'Weighted': {
         return new Weighted();
       }
+      case 'Managed':
+        return new Managed();
       default: {
         // Handles all Linear pool types
         if (isLinearish(poolType)) return new Linear();

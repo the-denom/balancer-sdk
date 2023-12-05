@@ -45,6 +45,7 @@ joinActions.set(PoolType.Stable, 'joinPool');
 joinActions.set(PoolType.StablePhantom, 'batchSwap');
 joinActions.set(PoolType.Weighted, 'joinPool');
 joinActions.set(PoolType.ComposableStable, 'joinPool');
+joinActions.set(PoolType.Managed, 'joinPool');
 
 type ExitAction = 'output' | 'batchSwap' | 'unwrap' | 'exitPool';
 const exitActions = new Map<PoolType, ExitAction>();
@@ -60,6 +61,7 @@ exitActions.set(PoolType.Stable, 'exitPool');
 exitActions.set(PoolType.StablePhantom, 'batchSwap');
 exitActions.set(PoolType.Weighted, 'exitPool');
 exitActions.set(PoolType.ComposableStable, 'exitPool');
+exitActions.set(PoolType.Managed, 'exitPool');
 
 export class PoolGraph {
   constructor(private pools: Findable<Pool, PoolAttribute>) {}

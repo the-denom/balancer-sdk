@@ -48,7 +48,7 @@ export default [
           comments: false,
         },
         compress: {
-          pure_funcs: ['console.log', 'console.time', 'console.timeEnd'],
+          pure_funcs: ['console.time', 'console.timeEnd'],
         },
       }),
     ],
